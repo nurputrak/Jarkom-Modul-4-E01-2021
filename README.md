@@ -6,14 +6,14 @@
 
 ### List
 
-1. [Problem VLSM dengan CPT](https://github.com/nurputrak/Jarkom-Modul-4-E01-2021#VLSM)
+1. [Problem VLSM dengan CPT](https://github.com/nurputrak/Jarkom-Modul-4-E01-2021#vlsm-variable-length-subnet-masking)
 2. [Problem CIDR dengan GNS3](https://github.com/nurputrak/Jarkom-Modul-4-E01-2021#CIDR)
 
 ## Pembagian Subnet
 
 ![image](https://user-images.githubusercontent.com/55318172/143030727-cda6d42a-9925-4d7e-b819-5525f7c7bb8e.png)
 
-## VLSM (Variable Length Subnet Masking)
+## VLSM(Variable Length Subnet Masking)
 
 Menentukan jumlah alamat IP yang dibutuhkan oleh tiap subnet dan  melabel netmask berdasarkan jumlah IP yang dibutuhkan.
 
