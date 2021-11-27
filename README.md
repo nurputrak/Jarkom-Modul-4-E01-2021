@@ -171,7 +171,7 @@ Menggabungkan subnet-subnet paling bawah dalam topologi yaitu dimulai dari subne
 
 ![image](https://user-images.githubusercontent.com/55318172/143031408-3d7fe57e-8559-4034-ad8d-9de585c52619.png)
 
-#### Gabungan Pertama(Subnet C)
+#### Gabungan Kedua(Subnet C)
 
 1. Penggabungan 1 yaitu subnet B1 dan A3 menghasilkan C1 dengan netmask /19 yaitu satu tingkat dari netmask terbesar yang diambil yaitu /20 dari B1.
 2. Penggabungan 2 yaitu subnet B2 dan A15 menghasilkan C2 dengan netmask /20.
@@ -179,34 +179,34 @@ Menggabungkan subnet-subnet paling bawah dalam topologi yaitu dimulai dari subne
 
 ![image](https://user-images.githubusercontent.com/55318172/143031429-62803a1a-cb51-4b1e-b541-b12658d80e4e.png)
 
-#### Gabungan Kedua(Subnet D)
+#### Gabungan Ketiga(Subnet D)
 
 1. Penggabungan 1 yaitu subnet C1 dan A4 menghasilkan D1 dengan netmask /18 yaitu satu tingkat dari netmask terbesar yang diambil yaitu /19 dari C1.
 2. Penggabungan 2 yaitu subnet C2 dan A11 menghasilkan D2 dengan netmask /19.
 
 ![image](https://user-images.githubusercontent.com/55318172/143031448-6e47724a-4b41-4418-a486-ed84a17fc963.png)
 
-#### Gabungan Ketiga(Subnet E)
+#### Gabungan Keempat(Subnet E)
 
 1. Penggabungan 1 yaitu subnet D1 dan A6 menghasilkan E1 dengan netmask /17 yaitu satu tingkat dari netmask terbesar yang diambil yaitu /18 dari D1.
 2. Penggabungan 2 yaitu subnet D2 dan C3 menghasilkan E2 dengan netmask /18.
 
 ![image](https://user-images.githubusercontent.com/55318172/143031467-09182464-4e0d-4dfb-9114-798ce77990b1.png)
 
-#### Gabungan Keempat(Subnet F)
+#### Gabungan Kelima(Subnet F)
 
 1. Penggabungan 1 yaitu subnet E1 dan A5 menghasilkan F1 dengan netmask /16 yaitu satu tingkat dari netmask terbesar yang diambil yaitu /17 dari E1.
 2. Penggabungan 2 yaitu subnet E2 dan A7 menghasilkan F2 dengan netmask /17.
 
 ![image](https://user-images.githubusercontent.com/55318172/143031507-354f3610-5eb8-45d2-951c-46fce3168096.png)
 
-#### Gabungan Kelima(Subnet G)
+#### Gabungan Keenam(Subnet G)
 
 Pada step ini hanya terjadi satu penggabungan yaitu subnet F2 dan A14 menghasilkan G1 dengan netmask /16 yaitu satu tingkat dari netmask terbesar yang diambil yaitu /17 dari F2.
 
 ![image](https://user-images.githubusercontent.com/55318172/143031532-8c0800ac-703d-4917-ab26-1969a7bb5f7e.png)
 
-#### Gabungan Keenam(Subnet H)
+#### Gabungan Ketujuh(Subnet H)
 
 Step terakhir yaitu menggabungkan dua kelompok F1 dan G1 menjadi satu yaitu subnet H1 dengan netmask /15.
 
