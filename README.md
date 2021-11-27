@@ -6,7 +6,7 @@
 
 ### List
 
-1. [Problem VLSM dengan CPT](https://github.com/nurputrak/Jarkom-Modul-4-E01-2021#vlsm-variable-length-subnet-masking)
+1. [Problem VLSM dengan CPT](https://github.com/nurputrak/Jarkom-Modul-4-E01-2021#vlsmvariable-length-subnet-masking)
 2. [Problem CIDR dengan GNS3](https://github.com/nurputrak/Jarkom-Modul-4-E01-2021#CIDR)
 
 ## Pembagian Subnet
