@@ -233,7 +233,7 @@ Maka didapatkan hasil pembagian IP sesuai pada tabel berikut.
 | A6 | foosh wat | 192.201.64.0 | 255.255.255.252 | 30 |
 | A7 | foosh guan | 192.200.64.0 | 255.255.255.252 | 30 |
 | A8 | guan jabra | 192.200.36.0 | 255.255.252.0 | 22 |
-| A9 | guanhao maingate alabas | 192.200.0.0 | 255.255.254.0 | 23 |
+| A9 | guanhao maingate alabas | 192.200.32 .0 | 255.255.254.0 | 23 |
 | A10 | alabas jorge | 192.200.34.0 | 255.255.255.240 | 28 |
 | A11 | guan oimo | 192.200.16.0 | 255.255.255.252 | 30 |
 | A12 | oimo enies seastone | 192.200.4.0 | 255.255.255.0 | 24 |
@@ -241,76 +241,9 @@ Maka didapatkan hasil pembagian IP sesuai pada tabel berikut.
 | A14 | foosha doriki | 192.200.128.0 | 255.255.255.252 | 30 |
 | A15 | fukurou oimo | 192.200.8.0 | 255.255.255.252 | 30 |
 
-### Configurasi GNS
+### Konfigurasi ETH
 
-#### Pucci
-
-```bash
-route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.201.16.2
-```
-
-#### Water7
-
-```bash
-route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.201.64.2
-route add -net 192.201.8.0 netmask 255.255.255.128 gw 192.201.16.1
-route add -net 192.201.0.0 netmask 255.255.248.0 gw 192.201.16.1
-route add -net 192.201.16.0 netmask 255.255.255.252 gw 192.201.16.1
-```
-
-#### Seastone
-
-```bash
-route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.4.1
-```
-
-#### Oimo
-
-```bash
-route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.16.1
-route add -net 192.200.0.0 netmask 255.255.252.0 gw 192.200.4.2
-```
-
-#### Alabasta
-
-```bash
-route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.32.1
-```
-
-#### Guanhao
-
-```bash
-route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.64.1
-route add -net 192.200.4.0 netmask 255.255.255.0 gw 192.200.16.2
-route add -net 192.200.0.0 netmask 255.255.252.0 gw 192.200.16.2
-route add -net 192.200.8.0 netmask 255.255.255.252 gw 192.200.16.2
-route add -net 192.200.34.0 netmask 255.255.255.240 gw 192.200.32.2
-# oimo-guan subnet
-route add -net 192.200.16.0 netmask 255.255.255.252 gw 192.200.32.2
-# doriki
-route add -net 192.200.128.0 netmask 255.255.255.252 gw 192.200.64.1
-```
-
-#### Foosha
-
-```bash
-# bawah
-route add -net 192.200.4.0 netmask 255.255.255.0 gw 192.200.64.2
-route add -net 192.200.0.0 netmask 255.255.252.0 gw 192.200.64.2
-route add -net 192.200.8.0 netmask 255.255.255.252 gw 192.200.64.2
-route add -net 192.200.36.0 netmask 255.255.252.0 gw 192.200.64.2
-route add -net 192.200.32.0 netmask 255.255.254.0 gw 192.200.64.2
-route add -net 192.200.34.0 netmask 255.255.255.240 gw 192.200.64.2
-route add -net 192.200.16.0 netmask 255.255.255.252 gw 192.200.64.2
-
-# kiri
-route add -net 192.201.8.0 netmask 255.255.255.128 gw 192.201.64.1
-route add -net 192.201.0.0 netmask 255.255.248.0 gw 192.201.64.1
-route add -net 192.201.32.0 netmask 255.255.252.0 gw 192.201.64.1
-route add -net 192.201.16.0 netmask 255.255.255.252 gw 192.201.64.1
-```
-
-### Configurasi ETH
+Pada network configuration, kita melakukan assignment dengan IP yang telah ditetapkan sesuai dengan subnet
 
 #### Jipangu
 
@@ -467,7 +400,7 @@ netmask 255.255.252.0
 
 auto eth2
 iface eth2 inet static
-address 192.200.0.1
+address 192.200.32.1
 netmask 255.255.254.0
 
 
@@ -492,9 +425,9 @@ gateway 192.200.36.1
 ```bash
 auto eth0
 iface eth0 inet static
-address 192.200.0.3
+address 192.200.32.3
 netmask 255.255.254.0
-gateway 192.200.0.1
+gateway 192.200.32.1
 ```
 
 #### Alabasta
@@ -505,9 +438,9 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-address 192.200.0.2
+address 192.200.32.2
 netmask 255.255.254.0
-gateway 192.200.0.1
+gateway 192.200.32.1
 
 auto eth1
 iface eth1 inet static
@@ -585,6 +518,79 @@ address 192.200.0.2
 netmask 255.255.252.0
 gateway 192.200.0.1
 ```
+
+### Routing
+
+Routing yang dilakukan di GNS sama persis dengan di CPT, hanya saja syntax dan IPnya berbeda.
+
+#### Pucci
+
+```bash
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.201.16.2
+```
+
+#### Water7
+
+```bash
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.201.64.2
+route add -net 192.201.8.0 netmask 255.255.255.128 gw 192.201.16.1
+route add -net 192.201.0.0 netmask 255.255.248.0 gw 192.201.16.1
+route add -net 192.201.16.0 netmask 255.255.255.252 gw 192.201.16.1
+```
+
+#### Seastone
+
+```bash
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.4.1
+```
+
+#### Oimo
+
+```bash
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.16.1
+route add -net 192.200.0.0 netmask 255.255.252.0 gw 192.200.4.2
+```
+
+#### Alabasta
+
+```bash
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.32.1
+```
+
+#### Guanhao
+
+```bash
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.200.64.1
+route add -net 192.200.4.0 netmask 255.255.255.0 gw 192.200.16.2
+route add -net 192.200.0.0 netmask 255.255.252.0 gw 192.200.16.2
+route add -net 192.200.8.0 netmask 255.255.255.252 gw 192.200.16.2
+route add -net 192.200.34.0 netmask 255.255.255.240 gw 192.200.32.2
+# oimo-guan subnet
+route add -net 192.200.16.0 netmask 255.255.255.252 gw 192.200.32.2
+# doriki
+route add -net 192.200.128.0 netmask 255.255.255.252 gw 192.200.64.1
+```
+
+#### Foosha
+
+```bash
+# bawah
+route add -net 192.200.4.0 netmask 255.255.255.0 gw 192.200.64.2
+route add -net 192.200.0.0 netmask 255.255.252.0 gw 192.200.64.2
+route add -net 192.200.8.0 netmask 255.255.255.252 gw 192.200.64.2
+route add -net 192.200.36.0 netmask 255.255.252.0 gw 192.200.64.2
+route add -net 192.200.32.0 netmask 255.255.254.0 gw 192.200.64.2
+route add -net 192.200.34.0 netmask 255.255.255.240 gw 192.200.64.2
+route add -net 192.200.16.0 netmask 255.255.255.252 gw 192.200.64.2
+
+# kiri
+route add -net 192.201.8.0 netmask 255.255.255.128 gw 192.201.64.1
+route add -net 192.201.0.0 netmask 255.255.248.0 gw 192.201.64.1
+route add -net 192.201.32.0 netmask 255.255.252.0 gw 192.201.64.1
+route add -net 192.201.16.0 netmask 255.255.255.252 gw 192.201.64.1
+```
+
+
 
 ### Kendala Pengerjaan
 
