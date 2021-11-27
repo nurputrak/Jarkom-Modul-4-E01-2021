@@ -42,6 +42,8 @@ Subnet besar yang dibentuk memiliki NID 192.200.0.0 dengan netmask /19 sehingga 
 
 ![image](https://user-images.githubusercontent.com/55318172/143030798-3d3986c7-0c44-43ff-90b6-57713392ed79.png)
 
+Pada VLSM ini diturunkan sesuai dengan length atasnya sehingga ketika /19 akan diturunkan menjadi /20, dan pembagian IPnya mengikuti tabel. Kemudian jika ada subnet yang bisa diassign, maka kita langsung mengassign. Hal ini dilakukan berulang" sampai semua subnet selesai di assign.
+
 ### Subnet + IP
 
 Selanjutnya menyesuaikan pembagian IP sesuai dengan subnet yang telah dibagi berdasarkan pohon diatas pada topologi. Setelah itu akan didapatkan pembagian IP untuk tiap nodenya.
@@ -86,6 +88,68 @@ Selanjutnya menyesuaikan pembagian IP sesuai dengan subnet yang telah dibagi ber
 | A14 | Doriki | 192.200.27.162 | 255.255.255.252 |  |
 | A15 | Oimo | 192.200.27.165 | 255.255.255.252 | /30 |
 | A15 | Fukurou | 192.200.27.166 | 255.255.255.252 |  |
+
+### Assignment pada CPT
+
+![image](https://user-images.githubusercontent.com/55318172/143670080-b97f4a5e-f411-4da8-92b1-075a74395b6b.png)
+
+Contoh pada pucci, kita menambahkan IP dan Subnet Mask sesuai dengan pembagian yang telah dilakukan, dengan IP ditambah 1 dari subnetnya. Hal ini diassign untuk semua router, client dan server.
+
+Pada server & Client ditambahkan juga gateway yang mengarah ke router terdekat.
+
+![image](https://user-images.githubusercontent.com/55318172/143670107-2f9e5fff-ea11-4712-9006-abdbd4e99d52.png)
+
+
+### Menambah Ethernet
+
+Karena default hanya memiliki 2 port ethernet, maka kita bisa menambah port pada tab physical
+
+![image](https://user-images.githubusercontent.com/55318172/143670287-44136d1e-15cb-4508-819d-aad0e9fa92bc.png)
+
+Contoh pada foosha kami menambah 3 port lagi karena butuh terkoneksi 5 cabang
+
+### Routing
+
+Pada routing berikut adalah config" yang berada pada router.
+
+#### Pucci
+
+![image](https://user-images.githubusercontent.com/55318172/143670128-dfb5e35d-356e-49e5-8e28-7d2de7280a99.png)
+
+0.0.0.0 berarti mengambil semua pesan dan diarahkan ke next hop.
+
+#### Water7
+
+![image](https://user-images.githubusercontent.com/55318172/143670137-3f45dd8f-b680-4b8b-bac1-4fb0925a422d.png)
+
+Pada water7 kita mengarahkan ke subnet 27.0 dan 20.0 dengan next hop ke pucci.
+
+#### Seastone
+
+![image](https://user-images.githubusercontent.com/55318172/143670149-3ea5851c-ec70-48f6-adf4-639589da104c.png)
+
+
+#### Oimo
+
+![image](https://user-images.githubusercontent.com/55318172/143670163-9a1130b7-6923-4d12-b157-c0904ab3ec1f.png)
+
+Pada Oimo ditambahkan routing untuk ke subnet Elena
+
+#### Alabasta
+
+![image](https://user-images.githubusercontent.com/55318172/143670177-1a786a5b-b228-4ccc-9936-bee498307cea.png)
+
+#### Guanhao
+
+![CleanShot 2021-11-27 at 13 06 10](https://user-images.githubusercontent.com/55318172/143670188-ce53921b-852e-4553-9693-8d247c430267.png)
+
+Guanhao memiliki tanggung jawab untuk mengarahkan subnet" di bawah Oimo dan subnet di kanan guanhao yaitu jorge
+
+#### Foosha
+
+![image](https://user-images.githubusercontent.com/55318172/143670215-706b09d7-bbf4-494c-9fec-54216ae4defa.png)
+
+Karena kita sudah melakukan routing banyak di Guanhao dan Water7, Foosha akan bertugas untuk mensortir request yang masuk dan mengarahkan antara ke guanhao atau water7
 
 ### VLSM Routing Check 
 
@@ -525,3 +589,4 @@ gateway 192.200.0.1
 ### Kendala Pengerjaan
 
 1. Pada awalnya masih bingung dengan aturan dan arah penggabungan subnet pada CIDR.
+2. Pada GNS sempat ada yang salah menurunkan dan lumayan sulit untuk dideteksi jadi cukup memakan waktu
